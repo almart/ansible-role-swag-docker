@@ -33,4 +33,4 @@
       - "/etc/localtime:/etc/localtime:ro"
     networks:
       - name: "{{ swag_docker_network }}"
-    purge_networks: true
+    networks_cli_compatible: yes
