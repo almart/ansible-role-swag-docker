@@ -5,6 +5,7 @@ swag_docker_version: "latest"
 
 swag_dns_plugin: 'digitalocean'
 swag_domain_name: 'example.com'
+swag_digitalocean_token: ''
 
 swag_docker_labels: {}
 swag_docker_image: "linuxserver/swag:{{ swag_docker_version }}"
