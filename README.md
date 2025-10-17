@@ -29,6 +29,7 @@ swag_docker_version: "latest"
 
 swag_dns_plugin: 'digitalocean'
 swag_domain_name: 'example.com'
+swag_digitalocean_token: ''
 
 swag_docker_labels: {}
 swag_docker_image: "linuxserver/swag:{{ swag_docker_version }}"
@@ -75,6 +76,26 @@ Example Playbook
 - hosts: servers
   roles:
       - { role: warhorse.swag_docker }
+```
+
+Example with DigitalOcean DNS Plugin
+------------------------------------
+
+```yaml
+- hosts: servers
+  vars:
+    swag_digitalocean_token: "{{ lookup('env', 'DIGITALOCEAN_TOKEN') }}"
+  roles:
+      - { role: warhorse.swag_docker }
+```
+
+When using GitHub Actions, you can pass secrets as environment variables:
+
+```yaml
+- name: Run playbook
+  env:
+    DIGITALOCEAN_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
+  run: ansible-playbook playbook.yml
 ```
 
 License
